@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +26,7 @@ public class ProductService {
                 .description(product.getDescription()).price(product.getPrice()).build();
     }
 
+    @Transactional
     public void createProduct(ProductRequest productRequest) {
         Product product = Product.builder().name(productRequest.getName()).description(productRequest.getDescription())
                 .price(productRequest.getPrice()).build();
