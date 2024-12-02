@@ -4,14 +4,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anup.order_service.dto.OrderRequest;
-import com.anup.order_service.model.Order;
+
 import com.anup.order_service.service.OrderService;
 
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -26,10 +23,4 @@ public class OrderController {
         orderService.placeOrder(orderRequest);
         return "Order placed successfully";
     }
-
-    @GetMapping
-    public List<Order> getAllOrders() {
-        return orderService.getAllOrders();
-    }
-
 }
